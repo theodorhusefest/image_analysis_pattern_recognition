@@ -11,30 +11,59 @@ def update_datasheet(image_dir = "./data/operators"):
     Updates datasheet to fit current content of imagefolder 
     Filename must include correct label [plus, minus, mul, div, eq]
     """
-    
+    print("Updating Datasheet")
     data = pd.DataFrame(columns = ["path", "label"])
 
     i = 0
     for file in os.listdir(image_dir):
-        if "plus" in file:
+        if "0" in file:
             newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 0}, index = [0])
 
-        elif "minus" in file:
+        elif "1" in file:
             newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 1}, index = [0])
 
-        elif "mul" in file:
+        elif "2" in file:
             newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 2}, index = [0])
 
-        elif "div" in file:
+        elif "3" in file:
             newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 3}, index = [0])
 
-        elif "eq" in file:
+        elif "4" in file:
             newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 4}, index = [0])
+        
+        elif "5" in file:
+            newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 5}, index = [0])
+            
+        elif "6" in file:
+            newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 6}, index = [0])
+       
+        elif "7" in file:
+            newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 7}, index = [0]) 
+                
+        elif "8" in file:
+            newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 8}, index = [0])
 
-        data = data.append(newrow, ignore_index = True)
+        elif "9" in file:
+            newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 9}, index = [0])
+        
+        elif "plus" in file:
+            newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 10}, index = [0])
+            
+        elif "minus" in file:
+            newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 11}, index = [0])
+       
+        elif "mul" in file:
+            newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 12}, index = [0])
+        
+        elif "div" in file:
+            newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 13}, index = [0])
+       
+        elif "eq" in file:
+            newrow = pd.DataFrame(columns = ["path", "label"],data = {"path": file, "label": 14}, index = [0])
         i += 1
-
-    data = data.reset_index(drop=True)
+        
+        data = data.append(newrow, ignore_index = True)
+        data = data.reset_index(drop=True)
     data.to_csv(image_dir + "/datasheet.csv")
     
     
